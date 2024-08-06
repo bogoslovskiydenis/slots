@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Bonanza Слот</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: url("assets/mask.png") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            display: flex;
+            height: 100%;
+            position: relative;
+        }
+        .header {
+            background-color: #E50914;
+            width: 397px;
+            height: 117px;
+            border-bottom-right-radius: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+        .left-side {
+            flex: 1;
+            position: relative;
+        }
+        .left-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+        }
+        .people {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80%;
+            background-image: url('assets/people.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .right-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .right-side-text {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .right-side-text h2 {
+            font-size: 32px;
+            color: #E50914;
+            margin: 0;
+        }
+        .right-side-text p {
+            font-size: 24px;
+            color: #333;
+            margin: 0;
+        }
+        .slot-machine {
+            width: 80%;
+            height: 80%;
+            background-image: url('assets/slot.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            padding: 40px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .slot-container {
+            display: flex;
+            overflow: hidden;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+        }
+        .slot-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s linear;
+            padding: 30px 10px 0 8px;
+        }
+        .slot-item {
+            width: 110px;
+            height: 110px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+        .purple-shape { background-image: url('assets/rubin-purpu.png'); }
+        .plum { background-image: url('assets/plum.png'); }
+        .watermelon { background-image: url('assets/watermelon.png'); }
+        .banana { background-image: url('assets/banana.png'); }
+        .heart { background-image: url('assets/heart.png'); }
+        .green-shape { background-image: url('assets/rubin green.png'); }
+        .grapes { background-image: url('assets/grape.png'); }
+        .lollipop { background-image: url('assets/candy.png'); }
+        .apple { background-image: url('assets/apple.png'); }
+        .blue-shape { background-image: url('assets/rubin-blue.png');}
+        .steps {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        Header Content
+    </div>
+    <div class="left-side">
+        <div class="people"></div>
+    </div>
+    <div class="right-side">
+        <div class="right-side-text">
+            <h2>Крути слоты</h2>
+            <p>Забирай бонус</p>
+        </div>
+        <div class="slot-machine">
+            <div class="slot-container">
+                <div class="slot-column" id="column1"></div>
+                <div class="slot-column" id="column2"></div>
+                <div class="slot-column" id="column3"></div>
+                <div class="slot-column" id="column4"></div>
+                <div class="slot-column" id="column5"></div>
+                <div class="slot-column" id="column6"></div>
+            </div>
+        </div>
+        <div class="steps">
+            <img src="assets/steps.png" alt="Steps" class="steps">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const symbols = ['purple-shape', 'plum', 'watermelon', 'banana', 'heart', 'green-shape', 'grapes', 'lollipop', 'apple', 'blue-shape'];
+
+    function createSlotItems() {
+        const columns = document.querySelectorAll('.slot-column');
+        columns.forEach(column => {
+            for (let i = 0; i < 4; i++) {
+                const item = document.createElement('div');
+                item.classList.add('slot-item');
+                item.classList.add(symbols[Math.floor(Math.random() * symbols.length)]);
+                column.appendChild(item);
+            }
+        });
+    }
+
+    function spinSlots() {
+        const columns = document.querySelectorAll('.slot-column');
+        let offset = 0;
+        let spins = 0;
+        const totalSpins = 10;
+        const interval = setInterval(() => {
+            offset += 20;
+            columns.forEach(column => {
+                column.style.transform = `translateY(-${offset}px)`;
+            });
+
+            if (offset >= 100) {
+                offset = 0;
+                spins++;
+                columns.forEach(column => {
+                    column.style.transform = 'translateY(0)';
+                    const firstItem = column.children[0];
+                    column.appendChild(firstItem);
+                    const lastItem = column.children[column.children.length - 1];
+                    lastItem.className = 'slot-item ' + symbols[Math.floor(Math.random() * symbols.length)];
+                });
+            }
+
+            if (spins >= totalSpins) {
+                clearInterval(interval);
+            }
+        }, 10);
+    }
+
+    createSlotItems();
+    setInterval(spinSlots, 5000);
+</script>
+</body>
+</html>
