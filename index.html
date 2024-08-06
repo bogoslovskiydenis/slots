@@ -12,10 +12,12 @@
             font-family: Arial, sans-serif;
             background: url("assets/mask.png") no-repeat center center fixed;
             background-size: cover;
+            display: flex;
+            flex-direction: column;
         }
         .container {
             display: flex;
-            height: 100%;
+            flex: 1;
             position: relative;
         }
         .header {
@@ -55,6 +57,7 @@
             background-image: url('assets/people.png');
             background-size: cover;
             background-position: center;
+            z-index: 1;
         }
         .right-side {
             flex: 1;
@@ -123,8 +126,30 @@
         .apple { background-image: url('assets/apple.png'); }
         .blue-shape { background-image: url('assets/rubin-blue.png');}
         .steps {
-            width: 100%;
-            height: auto;
+            width: 611px;
+            height: 175px;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            height: 58px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .footer img {
+            width: 41px;
+            height: 15px;
+        }
+        .footer-left {
+            display: flex;
+            gap: 10px;
+        }
+        .footer-right {
+            width: 27px;
+            height: 27px;
         }
     </style>
 </head>
@@ -151,10 +176,16 @@
                 <div class="slot-column" id="column6"></div>
             </div>
         </div>
-        <div class="steps">
-            <img src="assets/steps.png" alt="Steps" class="steps">
-
-        </div>
+        <img src="assets/steps.png" alt="Steps" class="steps">
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-left">
+        <img src="assets/visa2.svg" alt="Footer Left 1">
+        <img src="assets/mastercard2.svg" alt="Footer Left 2">
+    </div>
+    <div class="footer-right">
+        <img src="assets/social-icon2.svg" alt="Footer Right">
     </div>
 </div>
 
