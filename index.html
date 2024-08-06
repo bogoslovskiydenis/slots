@@ -5,40 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sweet Bonanza Слот</title>
     <style>
+        @font-face {
+            font-family: 'Druk Wide Cyr';
+            src: url('assets/fonts/Druk Wide Cyr Bold.otf') format('truetype');
+        }
+
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
-            background: url("assets/mask.png") no-repeat center center fixed;
+            background: linear-gradient(to right, #333, #666, transparent), url("assets/mask.png");
             background-size: cover;
-            display: flex;
-            flex-direction: column;
+            background-position: center;
         }
+
         .container {
+            margin: 0 auto;
             display: flex;
+            height: 100vh;
+            width: 100%;
             flex: 1;
-            position: relative;
+            max-width: 100%;
         }
+
         .header {
-            background-color: #E50914;
-            width: 397px;
-            height: 117px;
-            border-bottom-right-radius: 20px;
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
+            width: 100%;
+            max-width: 397px;
+            height: 117px;
+            background-color: #E50914;
+            padding: 10px;
+            border-radius: 0 0 140px 0;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 24px;
-            color: white;
-            font-weight: bold;
+            justify-content: center;
+            flex-direction: column;
         }
+
         .left-side {
+            width: 50%;
             flex: 1;
             position: relative;
         }
+
         .left-side::before {
             content: '';
             position: absolute;
@@ -48,6 +60,7 @@
             height: 100%;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
         }
+
         .people {
             position: absolute;
             bottom: 0;
@@ -59,76 +72,132 @@
             background-position: center;
             z-index: 1;
         }
+
         .right-side {
+            width: 50%;
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
+
         .right-side-text {
             text-align: center;
             margin-bottom: 20px;
+            font-family: 'Druk Wide Cyr', Arial, sans-serif;
+            font-weight: 500;
+            width: 549px;
+            max-width: 100%;
         }
-        .right-side-text h2 {
-            font-size: 32px;
-            color: #E50914;
-            margin: 0;
+
+        .right-side-text1 {
+            font-size: 31px;
+            color: #ffffff;
         }
-        .right-side-text p {
-            font-size: 24px;
-            color: #333;
-            margin: 0;
+
+        .right-side-text-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #E50914;
+            width: 549px;
+            height: 54px;
+            max-width: 100%;
         }
+
+        .right-side-text-container, p {
+            font-family: 'Druk Wide Cyr', Arial, sans-serif;
+            font-weight: 500;
+            font-size: 41px;
+            color: #ffffff;
+        }
+
         .slot-machine {
-            width: 80%;
-            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 777px;
+            height: 584px;
             background-image: url('assets/slot.png');
-            background-size: 100% 100%;
+            background-size: contain;
             background-repeat: no-repeat;
-            padding: 40px;
             position: relative;
             margin-bottom: 20px;
         }
+
         .slot-container {
             display: flex;
             overflow: hidden;
-            height: 400px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
+            width: 700px;
+            height: 70%;
+            max-width: 100%;
         }
+
         .slot-column {
             flex: 1;
             display: flex;
             flex-direction: column;
             transition: transform 0.2s linear;
-            padding: 30px 10px 0 8px;
+            padding: 10px 5px 0 5px;
         }
+
         .slot-item {
-            width: 110px;
-            height: 110px;
+            width: 100%;
+            height: 100px;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             transition: transform 0.5s;
         }
-        .purple-shape { background-image: url('assets/rubin-purpu.png'); }
-        .plum { background-image: url('assets/plum.png'); }
-        .watermelon { background-image: url('assets/watermelon.png'); }
-        .banana { background-image: url('assets/banana.png'); }
-        .heart { background-image: url('assets/heart.png'); }
-        .green-shape { background-image: url('assets/rubin green.png'); }
-        .grapes { background-image: url('assets/grape.png'); }
-        .lollipop { background-image: url('assets/candy.png'); }
-        .apple { background-image: url('assets/apple.png'); }
-        .blue-shape { background-image: url('assets/rubin-blue.png');}
+
+        .purple-shape {
+            background-image: url('assets/rubin-purpu.png');
+        }
+
+        .plum {
+            background-image: url('assets/plum.png');
+        }
+
+        .watermelon {
+            background-image: url('assets/watermelon.png');
+        }
+
+        .banana {
+            background-image: url('assets/banana.png');
+        }
+
+        .heart {
+            background-image: url('assets/heart.png');
+        }
+
+        .green-shape {
+            background-image: url('assets/rubin green.png');
+        }
+
+        .grapes {
+            background-image: url('assets/grape.png');
+        }
+
+        .lollipop {
+            background-image: url('assets/candy.png');
+        }
+
+        .apple {
+            background-image: url('assets/apple.png');
+        }
+
+        .blue-shape {
+            background-image: url('assets/rubin-blue.png');
+        }
+
         .steps {
             width: 611px;
             height: 175px;
+            max-width: 100%;
         }
+
         .footer {
             display: flex;
             justify-content: space-between;
@@ -139,32 +208,94 @@
             position: relative;
             z-index: 2;
         }
+
         .footer img {
             width: 41px;
             height: 15px;
         }
+
         .footer-left {
             display: flex;
             gap: 10px;
         }
+
         .footer-right {
             width: 27px;
             height: 27px;
         }
+
+        @media (max-width: 1350px) {
+            .slot-item {
+                height: 5vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .left-side {
+                display: none;
+            }
+
+            .steps {
+                display: none;
+            }
+
+            .slot-machine {
+                width: 100%;
+            }
+            .slot-item {
+                height: 10vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-side {
+                display: none;
+            }
+
+            .header {
+                display: none;
+            }
+
+            .right-side {
+                width: 100%;
+                max-width: 100%;
+                padding-top: 140px;
+            }
+
+            .slot-item {
+                height: 10vw;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .header {
+                display: none;
+            }
+
+            .right-side {
+                width: 100%;
+                max-width: 100%;
+                padding-top: 140px;
+            }
+
+        }
     </style>
 </head>
 <body>
+<div class="header">
+    <img src="assets/logo.png" alt="">
+</div>
 <div class="container">
-    <div class="header">
-        Header Content
-    </div>
+
     <div class="left-side">
         <div class="people"></div>
     </div>
     <div class="right-side">
         <div class="right-side-text">
-            <h2>Крути слоты</h2>
-            <p>Забирай бонус</p>
+            <div class="right-side-text1">Крути слоты</div>
+            <div class="right-side-text-container">
+                <p>Забирай бонус
+            </div>
         </div>
         <div class="slot-machine">
             <div class="slot-container">
@@ -195,7 +326,7 @@
     function createSlotItems() {
         const columns = document.querySelectorAll('.slot-column');
         columns.forEach(column => {
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < 5; i++) {
                 const item = document.createElement('div');
                 item.classList.add('slot-item');
                 item.classList.add(symbols[Math.floor(Math.random() * symbols.length)]);
@@ -204,34 +335,34 @@
         });
     }
 
-    function spinSlots() {
-        const columns = document.querySelectorAll('.slot-column');
-        let offset = 0;
-        let spins = 0;
-        const totalSpins = 10;
-        const interval = setInterval(() => {
-            offset += 20;
-            columns.forEach(column => {
-                column.style.transform = `translateY(-${offset}px)`;
-            });
-
-            if (offset >= 100) {
-                offset = 0;
-                spins++;
-                columns.forEach(column => {
-                    column.style.transform = 'translateY(0)';
-                    const firstItem = column.children[0];
-                    column.appendChild(firstItem);
-                    const lastItem = column.children[column.children.length - 1];
-                    lastItem.className = 'slot-item ' + symbols[Math.floor(Math.random() * symbols.length)];
-                });
-            }
-
-            if (spins >= totalSpins) {
-                clearInterval(interval);
-            }
-        }, 10);
-    }
+    // function spinSlots() {
+    //     const columns = document.querySelectorAll('.slot-column');
+    //     let offset = 0;
+    //     let spins = 0;
+    //     const totalSpins = 10;
+    //     const interval = setInterval(() => {
+    //         offset += 20;
+    //         columns.forEach(column => {
+    //             column.style.transform = `translateY(-${offset}px)`;
+    //         });
+    //
+    //         if (offset >= 100) {
+    //             offset = 0;
+    //             spins++;
+    //             columns.forEach(column => {
+    //                 column.style.transform = 'translateY(0)';
+    //                 const firstItem = column.children[0];
+    //                 column.appendChild(firstItem);
+    //                 const lastItem = column.children[column.children.length - 1];
+    //                 lastItem.className = 'slot-item ' + symbols[Math.floor(Math.random() * symbols.length)];
+    //             });
+    //         }
+    //
+    //         if (spins >= totalSpins) {
+    //             clearInterval(interval);
+    //         }
+    //     }, 10);
+    // }
 
     createSlotItems();
     setInterval(spinSlots, 5000);
