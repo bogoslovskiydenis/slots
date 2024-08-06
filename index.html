@@ -224,9 +224,26 @@
             height: 27px;
         }
 
+        @media (max-width: 1980px) {
+            .container {
+                width: 1980px;
+                max-width: 100%;
+            }
+        }
+
         @media (max-width: 1350px) {
             .slot-item {
                 height: 5vw;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .right-side-text-container p {
+                font-size: 35px;
+            }
+
+            .left-side {
+                width: 30%;
             }
         }
 
@@ -236,14 +253,28 @@
             }
 
             .steps {
-                display: none;
+                display: block;
             }
 
             .slot-machine {
                 width: 100%;
             }
+
             .slot-item {
                 height: 10vw;
+            }
+
+            .header {
+                width: 30%;
+                height: 36px;
+            }
+
+            .header img {
+                width: 50%;
+            }
+
+            .right-side-text-container p {
+                font-size: 28px;
             }
         }
 
@@ -253,7 +284,16 @@
             }
 
             .header {
-                display: none;
+                width: 30%;
+                height: 36px;
+            }
+
+            .header img {
+                width: 70%;
+            }
+
+            .steps {
+                display: block;
             }
 
             .right-side {
@@ -265,17 +305,44 @@
             .slot-item {
                 height: 10vw;
             }
+
+            .right-side-text-container p {
+                font-size: 28px;
+            }
         }
 
         @media (max-width: 375px) {
             .header {
-                display: none;
+                width: 30%;
+                height: 36px;
+            }
+
+            .header img {
+                width: 70%;
+            }
+
+            .left-side {
+                display: block;
             }
 
             .right-side {
+                display: flex;
+                align-items: center;
+                justify-content: start;
                 width: 100%;
                 max-width: 100%;
-                padding-top: 140px;
+            }
+
+            .right-side-text-container p {
+                font-size: 28px;
+            }
+
+            .slot-container {
+                height: 80%;
+            }
+
+            .steps {
+                display: none;
             }
 
         }
@@ -307,7 +374,9 @@
                 <div class="slot-column" id="column6"></div>
             </div>
         </div>
-        <img src="assets/steps.png" alt="Steps" class="steps">
+        <div class="steps">
+            <img src="assets/steps.svg" alt="Steps" class="steps">
+        </div>
     </div>
 </div>
 <div class="footer">
@@ -335,34 +404,34 @@
         });
     }
 
-    // function spinSlots() {
-    //     const columns = document.querySelectorAll('.slot-column');
-    //     let offset = 0;
-    //     let spins = 0;
-    //     const totalSpins = 10;
-    //     const interval = setInterval(() => {
-    //         offset += 20;
-    //         columns.forEach(column => {
-    //             column.style.transform = `translateY(-${offset}px)`;
-    //         });
-    //
-    //         if (offset >= 100) {
-    //             offset = 0;
-    //             spins++;
-    //             columns.forEach(column => {
-    //                 column.style.transform = 'translateY(0)';
-    //                 const firstItem = column.children[0];
-    //                 column.appendChild(firstItem);
-    //                 const lastItem = column.children[column.children.length - 1];
-    //                 lastItem.className = 'slot-item ' + symbols[Math.floor(Math.random() * symbols.length)];
-    //             });
-    //         }
-    //
-    //         if (spins >= totalSpins) {
-    //             clearInterval(interval);
-    //         }
-    //     }, 10);
-    // }
+    function spinSlots() {
+        const columns = document.querySelectorAll('.slot-column');
+        let offset = 0;
+        let spins = 0;
+        const totalSpins = 10;
+        const interval = setInterval(() => {
+            offset += 20;
+            columns.forEach(column => {
+                column.style.transform = `translateY(-${offset}px)`;
+            });
+
+            if (offset >= 100) {
+                offset = 0;
+                spins++;
+                columns.forEach(column => {
+                    column.style.transform = 'translateY(0)';
+                    const firstItem = column.children[0];
+                    column.appendChild(firstItem);
+                    const lastItem = column.children[column.children.length - 1];
+                    lastItem.className = 'slot-item ' + symbols[Math.floor(Math.random() * symbols.length)];
+                });
+            }
+
+            if (spins >= totalSpins) {
+                clearInterval(interval);
+            }
+        }, 10);
+    }
 
     createSlotItems();
     setInterval(spinSlots, 5000);
