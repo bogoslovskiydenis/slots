@@ -223,7 +223,7 @@ body, html {
 }
 
 .modal {
-    padding-top: 30px;
+    padding-top: 100px;
     display: none;
     position: fixed;
     z-index: 1000;
@@ -242,11 +242,17 @@ body, html {
     align-items: center;
     position: relative;
     background-color: #E50914;
+    background-image: url('assets/bottom-img.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0 auto;
-    width: 871px;
-    max-width: 80%;
+    width: 80%;
+    max-width: 871px;
     text-align: center;
     box-sizing: border-box;
+    padding: 20px;
+    height: auto;
 }
 
 .modal-text {
