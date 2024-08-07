@@ -11,7 +11,7 @@
         }
 
         body, html {
-            margin: 0;
+            margin: 0 auto;
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
@@ -46,7 +46,7 @@
         }
 
         .left-side {
-            width: 50%;
+            width: 30%;
             flex: 1;
             position: relative;
         }
@@ -74,7 +74,7 @@
         }
 
         .right-side {
-            width: 50%;
+            width: 70%;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -117,8 +117,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%;
-            max-width: 777px;
+            width: 777px;
+            max-width: 100%;
             height: 584px;
             background-image: url('assets/slot.png');
             background-size: contain;
@@ -140,7 +140,7 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-            padding: 10px 5px 0 5px;
+            padding: 15px 5px 0 5px;
         }
 
         .slot-item {
@@ -193,9 +193,16 @@
         }
 
         .steps {
+            display: flex;
             width: 611px;
             height: 175px;
             max-width: 100%;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .steps img{
+            width: 190px;
+            height: 175px;
         }
 
         .footer {
@@ -224,16 +231,16 @@
             height: 27px;
         }
 
-        @media (max-width: 1980px) {
-            .container {
-                width: 1980px;
-                max-width: 100%;
-            }
-        }
+        /*@media (max-width: 1980px) {*/
+        /*    .container {*/
+        /*        width: 1980px;*/
+        /*        max-width: 100%;*/
+        /*    }*/
+        /*}*/
 
         @media (max-width: 1350px) {
             .slot-item {
-                height: 5vw;
+                height: 8vw;
             }
         }
 
@@ -245,6 +252,10 @@
             .left-side {
                 width: 30%;
             }
+            .steps{
+                display: flex;
+                flex-wrap: wrap;
+            }
         }
 
         @media (max-width: 768px) {
@@ -252,12 +263,8 @@
                 display: none;
             }
 
-            .steps {
-                display: block;
-            }
-
             .slot-machine {
-                width: 100%;
+                height: 100vw;
             }
 
             .slot-item {
@@ -276,6 +283,29 @@
             .right-side-text-container p {
                 font-size: 28px;
             }
+            .steps{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .modal-content {
+                width: 90%;
+                height: auto;
+                padding: 10px;
+            }
+
+            .modal-text {
+                font-size: 1.2em;
+            }
+
+            .modal-footer img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+            .steps1{
+                display: flex;
+                flex-wrap: wrap;
+            }
         }
 
         @media (max-width: 480px) {
@@ -292,10 +322,6 @@
                 width: 70%;
             }
 
-            .steps {
-                display: block;
-            }
-
             .right-side {
                 width: 100%;
                 max-width: 100%;
@@ -308,6 +334,25 @@
 
             .right-side-text-container p {
                 font-size: 28px;
+            }
+            .modal-content {
+                width: 95%;
+                height: auto;
+                padding: 10px;
+            }
+
+            .modal-text {
+                font-size: 1em;
+            }
+
+            .modal-footer img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+            .steps1{
+                display: flex;
+                flex-wrap: wrap;
             }
         }
 
@@ -343,10 +388,20 @@
 
             .steps {
                 display: none;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+            }
+            .slot-machine {
+                height: 100vw;
+            }
+            .steps1{
+                display: none;
             }
 
         }
         .modal {
+            padding-top: 30px;
             display: none;
             position: fixed;
             z-index: 1000;
@@ -355,26 +410,76 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 0, 0, 0.7);
         }
 
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: #E50914;
+            margin: 0 auto;
+            width: 871px;
+            max-width: 80%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .modal-text {
+            color: #fff;
+            font-family: 'Druk Wide Cyr', Arial, sans-serif;
+            font-size: 1.5em;
             text-align: center;
         }
 
-        #closeModal {
+
+        .claim-button {
+            width: 359px;
+            max-width: 100%;
+            height: 59px;
+            display: block;
+            margin: 20px auto;
             background-color: #E50914;
-            color: white;
-            padding: 10px 20px;
+            color: #ffffff;
+            font-family: 'Druk Wide Cyr', Arial, sans-serif;
+            font-size: 1.5em;
             border: none;
+            padding: 10px 20px;
             cursor: pointer;
-            margin-top: 20px;
         }
+
+        .claim-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .modal-footer {
+            width: 100%;
+            text-align: center;
+        }
+
+        .modal-footer img {
+            width: 894px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .steps1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .steps1 img {
+            width: auto;
+            height: 175px;
+        }
+
     </style>
 </head>
 <body>
@@ -404,7 +509,9 @@
             </div>
         </div>
         <div class="steps">
-            <img src="assets/steps.svg" alt="Steps" class="steps">
+            <img src="assets/step%201.svg" alt="">
+            <img src="assets/step%202.svg" alt="">
+            <img src="assets/step%203.svg" alt="">
         </div>
     </div>
 </div>
@@ -419,9 +526,19 @@
 </div>
 <div id="winModal" class="modal">
     <div class="modal-content">
-        <h2>Поздравляем!</h2>
-        <p>Вы выиграли <span id="winAmount"></span>!</p>
-        <button id="closeModal">Закрыть</button>
+        <div class="modal-text">
+            <p id="winAmount"></p>
+        </div>
+        <div class="modal-footer">
+            <img src="assets/bottom-img.svg" alt="Your Image">
+        </div>
+
+    </div>
+    <button class="claim-button" onclick="window.location.href='https://www.google.com'">Забрать</button>
+    <div class="steps1">
+        <img src="assets/step%201.svg" alt="">
+        <img src="assets/step%202.svg" alt="">
+        <img src="assets/step%203.svg" alt="">
     </div>
 </div>
 <script>
@@ -481,15 +598,19 @@
         return -c / 2 * (t * (t - 2) - 1) + b;
     }
 
+
     function showWinModal() {
-        const winAmount = Math.floor(Math.random() * 1000) + 100;
-        document.getElementById('winAmount').textContent = winAmount + " монет";
+        const winAmount = `
+        <div>до 200 000 KZT</div>
+        <div>100%</div>
+        <div>+500 FS</div>
+    `;
+        document.getElementById('winAmount').innerHTML = winAmount;
         document.getElementById('winModal').style.display = 'block';
     }
-
-    document.getElementById('closeModal').addEventListener('click', function() {
-        document.getElementById('winModal').style.display = 'none';
-    });
+    // document.getElementById('closeModal').addEventListener('click', function() {
+    //     document.getElementById('winModal').style.display = 'none';
+    // });
 
     createSlotItems();
     spinSlots();
