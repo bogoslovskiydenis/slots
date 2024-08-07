@@ -13,7 +13,6 @@
         body, html {
             margin: 0 auto;
             padding: 0;
-            height: 100%;
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #333, #666, transparent), url("assets/mask.png");
             background-size: cover;
@@ -21,12 +20,11 @@
         }
 
         .container {
-            margin: 0 auto;
             display: flex;
-            height: 100vh;
+            min-height: 100vh;
             width: 100%;
-            flex: 1;
             max-width: 100%;
+            flex: 1;
         }
 
         .header {
@@ -46,7 +44,7 @@
         }
 
         .left-side {
-            width: 30%;
+            width: 50%;
             flex: 1;
             position: relative;
         }
@@ -74,17 +72,16 @@
         }
 
         .right-side {
-            width: 70%;
-            flex: 1;
+            width: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            box-sizing: border-box;
         }
 
         .right-side-text {
             text-align: center;
-            margin-bottom: 20px;
             font-family: 'Druk Wide Cyr', Arial, sans-serif;
             font-weight: 500;
             width: 549px;
@@ -231,16 +228,91 @@
             height: 27px;
         }
 
-        /*@media (max-width: 1980px) {*/
-        /*    .container {*/
-        /*        width: 1980px;*/
-        /*        max-width: 100%;*/
-        /*    }*/
-        /*}*/
+        .modal {
+            padding-top: 30px;
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: #E50914;
+            margin: 0 auto;
+            width: 871px;
+            max-width: 80%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .modal-text {
+            color: #fff;
+            font-family: 'Druk Wide Cyr', Arial, sans-serif;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .claim-button {
+            width: 359px;
+            max-width: 100%;
+            height: 59px;
+            display: block;
+            margin: 20px auto;
+            background-color: #E50914;
+            color: #ffffff;
+            font-family: 'Druk Wide Cyr', Arial, sans-serif;
+            font-size: 1.5em;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .claim-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .modal-footer {
+            width: 100%;
+            text-align: center;
+        }
+
+        .modal-footer img {
+            width: 894px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .steps1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .steps1 img {
+            width: auto;
+            height: 175px;
+        }
 
         @media (max-width: 1350px) {
             .slot-item {
                 height: 8vw;
+            }
+            .right-side{
+                width: 100%;
             }
         }
 
@@ -250,11 +322,14 @@
             }
 
             .left-side {
-                width: 30%;
+                display: none;
             }
             .steps{
                 display: flex;
                 flex-wrap: wrap;
+            }
+            .right-side{
+                width: 100%;
             }
         }
 
@@ -305,6 +380,9 @@
             .steps1{
                 display: flex;
                 flex-wrap: wrap;
+            }
+            .right-side{
+                width: 100%;
             }
         }
 
@@ -400,84 +478,59 @@
             }
 
         }
-        .modal {
-            padding-top: 30px;
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7);
+
+
+        /* MacBook Air and Pro 13-inch */
+        @media only screen
+        and (min-width: 1280px)
+        and (max-width: 1440px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+
+            .right-side-text {
+                width: 450px;
+                margin-bottom: 30px;
+            }
+
+            .right-side-text1 {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            .right-side-text-container {
+                width: 450px;
+                height: 45px;
+            }
+
+            .right-side-text-container p {
+                font-size: 34px;
+            }
         }
 
-        .modal-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            background-color: #E50914;
-            margin: 0 auto;
-            width: 871px;
-            max-width: 80%;
-            text-align: center;
-            box-sizing: border-box;
-        }
+        /* MacBook Pro 14-inch and 16-inch */
+        @media only screen
+        and (min-width: 1512px)
+        and (max-width: 1728px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+            .right-side-text {
+                width: 450px;
+                margin-bottom: 40px; /* Добавляем отступ снизу */
+            }
 
-        .modal-text {
-            color: #fff;
-            font-family: 'Druk Wide Cyr', Arial, sans-serif;
-            font-size: 1.5em;
-            text-align: center;
-        }
+            .right-side-text1 {
+                font-size: 31px; /* Возвращаем исходный размер шрифта */
+                margin-bottom: 20px; /* Добавляем отступ между текстовыми элементами */
+            }
 
+            .right-side-text-container {
+                width: 500px;
+                height: 50px;
+            }
 
-        .claim-button {
-            width: 359px;
-            max-width: 100%;
-            height: 59px;
-            display: block;
-            margin: 20px auto;
-            background-color: #E50914;
-            color: #ffffff;
-            font-family: 'Druk Wide Cyr', Arial, sans-serif;
-            font-size: 1.5em;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
+            .right-side-text-container p {
+                font-size: 38px;
+            }
 
-        .claim-button:hover {
-            background-color: #e0e0e0;
-        }
-
-        .modal-footer {
-            width: 100%;
-            text-align: center;
-        }
-
-        .modal-footer img {
-            width: 894px;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .steps1 {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .steps1 img {
-            width: auto;
-            height: 175px;
+            /* ... остальные стили без изменений ... */
         }
 
     </style>
@@ -599,18 +652,15 @@
     }
 
 
-    function showWinModal() {
-        const winAmount = `
-        <div>до 200 000 KZT</div>
-        <div>100%</div>
-        <div>+500 FS</div>
-    `;
-        document.getElementById('winAmount').innerHTML = winAmount;
-        document.getElementById('winModal').style.display = 'block';
-    }
-    // document.getElementById('closeModal').addEventListener('click', function() {
-    //     document.getElementById('winModal').style.display = 'none';
-    // });
+    // function showWinModal() {
+    //     const winAmount = `
+    //     <div>до 200 000 KZT</div>
+    //     <div>100%</div>
+    //     <div>+500 FS</div>
+    // `;
+    //     document.getElementById('winAmount').innerHTML = winAmount;
+    //     document.getElementById('winModal').style.display = 'block';
+    // }
 
     createSlotItems();
     spinSlots();
